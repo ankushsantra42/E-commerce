@@ -101,8 +101,3 @@ cd e-commerce
 
 ---
 
-## 📝 License
-This project is for educational purposes. Feel free to use and modify it as you see fit.
-
----
-*Built with ❤️ by your development team.*
