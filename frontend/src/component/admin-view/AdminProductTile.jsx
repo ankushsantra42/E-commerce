@@ -39,6 +39,8 @@ function AdminProductTile({
               setOpenCreateProductsDialog(true);
               setCurrentEditedId(product?._id);
               setFormData(product);
+              console.log(product, 'product');
+              
             }}
           >
             Edit

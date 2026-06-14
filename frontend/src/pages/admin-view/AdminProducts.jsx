@@ -141,7 +141,7 @@ function AdminProducts() {
         }}
       >
         {/* sidebar for add or edit product */}
-        <SheetContent side="right" className="overflow-auto">
+        <SheetContent side="right" className="overflow-auto px-3">
           {/* header */}
           <SheetHeader>
             <SheetTitle>
