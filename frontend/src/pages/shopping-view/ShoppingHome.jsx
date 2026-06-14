@@ -40,22 +40,56 @@ import { toast } from "sonner";
 import ProductDetailsDialog from "@/src/component/shopping-view/ProductDetails";
 import { getFeatureImages } from "@/src/store/common-slice/Common_slice";
 
+import men from '@/src/assets/brand/man.png'
+import women from '@/src/assets/brand/businesswoman.png'
+import footwear from '@/src/assets/brand/running-shoes.png'
+import accessories from '@/src/assets/brand/watch.png'
+import kids from '@/src/assets/brand/baby.png'
+
+import nike from '@/src/assets/brand/nike.png'
+import adidas from '@/src/assets/brand/adidas.png'
+import puma from '@/src/assets/brand/puma.png'
+import levi from '@/src/assets/brand/logo_his_res.png'
+import zara from '@/src/assets/brand/Zara_Logo.svg.png'
+import hm from '@/src/assets/brand/H&M-Logo.svg.png'
+
+// const categoriesWithIcon = [
+//   { id: "men", label: "Men", icon: ShirtIcon },
+//   { id: "women", label: "Women", icon: CloudLightning },
+//   { id: "kids", label: "Kids", icon: BabyIcon },
+//   { id: "accessories", label: "Accessories", icon: WatchIcon },
+//   { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
+// ];
+
+// const brandsWithIcon = [
+//   { id: "nike", label: "Nike", icon: Shirt },
+//   { id: "adidas", label: "Adidas", icon: WashingMachine },
+//   { id: "puma", label: "Puma", icon: ShoppingBasket },
+//   { id: "levi", label: "Levi's", icon: Airplay },
+//   { id: "zara", label: "Zara", icon: Images },
+//   { id: "h&m", label: "H&M", icon: Heater },
+// ];
+
 const categoriesWithIcon = [
-  { id: "men", label: "Men", icon: ShirtIcon },
-  { id: "women", label: "Women", icon: CloudLightning },
-  { id: "kids", label: "Kids", icon: BabyIcon },
-  { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
+  { id: "men", label: "Men", icon: men },
+  { id: "women", label: "Women", icon: women },
+  { id: "kids", label: "Kids", icon: kids },
+  { id: "accessories", label: "Accessories", icon: accessories },
+  { id: "footwear", label: "Footwear", icon: footwear },
 ];
 
 const brandsWithIcon = [
-  { id: "nike", label: "Nike", icon: Shirt },
-  { id: "adidas", label: "Adidas", icon: WashingMachine },
-  { id: "puma", label: "Puma", icon: ShoppingBasket },
-  { id: "levi", label: "Levi's", icon: Airplay },
-  { id: "zara", label: "Zara", icon: Images },
-  { id: "h&m", label: "H&M", icon: Heater },
+  { id: "nike", label: "Nike", icon: nike },
+  { id: "adidas", label: "Adidas", icon: adidas },
+  { id: "puma", label: "Puma", icon: puma },
+  { id: "levi", label: "Levi's", icon: levi },
+  { id: "zara", label: "Zara", icon: zara },
+  { id: "h&m", label: "H&M", icon: hm },
 ];
+
+
+
+
 function ShoppingHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { productList, productDetails } = useSelector(
@@ -203,7 +237,9 @@ function ShoppingHome() {
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
-                  <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
+                  {/* <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
+                   */}
+                  <img className='w-6 h-6 mb-4' src={categoryItem.icon} alt={categoryItem.label} /> 
                   <span className="font-bold">{categoryItem.label}</span>
                 </CardContent>
               </Card>
@@ -223,7 +259,8 @@ function ShoppingHome() {
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
-                  <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
+                  {/* <brandItem.icon className="w-12 h-12 mb-4 text-primary" /> */}
+                  <img className='w-6 h-6 mb-4' src={brandItem.icon} alt={brandItem.label} />
                   <span className="font-bold">{brandItem.label}</span>
                 </CardContent>
               </Card>

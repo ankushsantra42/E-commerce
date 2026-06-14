@@ -117,6 +117,7 @@ function AdminProducts() {
           Add New Product
         </Button>
       </div>
+      {/* show the product in admin products page */}
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
         {productList && productList.length > 0
           ? productList.map((productItem) => (
@@ -139,7 +140,9 @@ function AdminProducts() {
           setFormData(initialFormData);
         }}
       >
+        {/* sidebar for add or edit product */}
         <SheetContent side="right" className="overflow-auto">
+          {/* header */}
           <SheetHeader>
             <SheetTitle>
               {currentEditedId !== null ? "Edit Product" : "Add New Product"}
