@@ -1,12 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
+// OLD CODE:
+// function AdminProductTile({
+//   product,
+//   setFormData,
+//   setOpenCreateProductsDialog,
+//   setCurrentEditedId,
+//   handleDelete,
+// }) {
+// NEW CODE:
 function AdminProductTile({
   product,
   setFormData,
   setOpenCreateProductsDialog,
   setCurrentEditedId,
   handleDelete,
+  setUploadedImageUrl,
 }) {
   return (
     <Card className="w-full max-w-sm mx-auto">
@@ -34,11 +44,24 @@ function AdminProductTile({
           </div>
         </CardContent>
         <CardFooter className="flex justify-between items-center">
+{/* // OLD CODE:
+
+//           <Button
+//             onClick={() => {
+//               setOpenCreateProductsDialog(true);
+//               setCurrentEditedId(product?._id);
+//               setFormData(product);
+//               console.log(product, 'product');
+//               
+//             }}
+//           >
+// NEW CODE: */}
           <Button
             onClick={() => {
               setOpenCreateProductsDialog(true);
               setCurrentEditedId(product?._id);
               setFormData(product);
+              setUploadedImageUrl(product?.image);
               console.log(product, 'product');
               
             }}

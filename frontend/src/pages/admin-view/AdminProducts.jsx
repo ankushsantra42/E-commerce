@@ -59,18 +59,34 @@ function AdminProducts() {
 
       currentEditedId !== null
         ? dispatch(
+// OLD CODE:
+//             editProduct({
+//               id: currentEditedId,
+//               formData,
+//             })
+// NEW CODE:
             editProduct({
               id: currentEditedId,
-              formData,
+              formData: { ...formData, image: uploadedImageUrl },
             })
           ).then((data) => {
             console.log(data, "edit");
 
+// OLD CODE:
+//             if (data?.payload?.success) {
+//               dispatch(fetchAllProducts());
+//               setFormData(initialFormData);
+//               setOpenCreateProductsDialog(false);
+//               setCurrentEditedId(null);
+//             }
+// NEW CODE:
             if (data?.payload?.success) {
               dispatch(fetchAllProducts());
               setFormData(initialFormData);
               setOpenCreateProductsDialog(false);
               setCurrentEditedId(null);
+              setImageFile(null);
+              setUploadedImageUrl("");
             }
           })
         : dispatch(
@@ -97,11 +113,19 @@ function AdminProducts() {
       });
     }
 
+// OLD CODE:
+//   function isFormValid() {
+//     return Object.keys(formData)
+//       .filter((currentKey) => currentKey !== "averageReview")
+//       .map((key) => formData[key] !== "")
+//       .every((item) => item);
+//   }
+// NEW CODE:
   function isFormValid() {
     return Object.keys(formData)
       .filter((currentKey) => currentKey !== "averageReview")
       .map((key) => formData[key] !== "")
-      .every((item) => item);
+      .every((item) => item) && uploadedImageUrl !== "";
   }
 
   useEffect(() => {
@@ -121,6 +145,16 @@ function AdminProducts() {
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
         {productList && productList.length > 0
           ? productList.map((productItem) => (
+// OLD CODE:
+//               <AdminProductTile
+//                 key={productItem._id}
+//                 setFormData={setFormData}
+//                 setOpenCreateProductsDialog={setOpenCreateProductsDialog}
+//                 setCurrentEditedId={setCurrentEditedId}
+//                 product={productItem}
+//                 handleDelete={handleDelete}
+//               />
+// NEW CODE:
               <AdminProductTile
                 key={productItem._id}
                 setFormData={setFormData}
@@ -128,16 +162,26 @@ function AdminProducts() {
                 setCurrentEditedId={setCurrentEditedId}
                 product={productItem}
                 handleDelete={handleDelete}
+                setUploadedImageUrl={setUploadedImageUrl}
               />
             ))
           : null}
       </div>
       <Sheet
         open={openCreateProductsDialog}
+// OLD CODE:
+//         onOpenChange={() => {
+//           setOpenCreateProductsDialog(false);
+//           setCurrentEditedId(null);
+//           setFormData(initialFormData);
+//         }}
+// NEW CODE:
         onOpenChange={() => {
           setOpenCreateProductsDialog(false);
           setCurrentEditedId(null);
           setFormData(initialFormData);
+          setImageFile(null);
+          setUploadedImageUrl("");
         }}
       >
         {/* sidebar for add or edit product */}
