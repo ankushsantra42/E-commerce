@@ -73,7 +73,7 @@ const fetchCartItems = async (req, res) => {
         message: "Cart not found!",
       });
     }
-
+// it is the cleanup of cart item if an product is deleted from db
     const validItems = cart.items.filter(
       (productItem) => productItem.productId
     );

@@ -71,7 +71,7 @@ function ProductImageUpload({
     setImageLoadingState(true);
     const data = new FormData();
     data.append("my_file", imageFile);
-    console.log("API CALLED")
+    console.log("Cloudinary API CALLED")
     
     try {
       const response = await axios.post(
